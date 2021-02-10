@@ -1,0 +1,409 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="latamModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Address">
+    <Key>
+      <PropertyRef Name="codeAddress" />
+    </Key>
+    <Property Name="codeAddress" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="entityGUID" Type="varchar" MaxLength="255" />
+    <Property Name="street" Type="varchar(max)" />
+    <Property Name="city" Type="varchar" MaxLength="255" />
+    <Property Name="country" Type="varchar" MaxLength="255" />
+    <Property Name="contactemail1" Type="varchar" MaxLength="255" />
+    <Property Name="contactemail2" Type="varchar" MaxLength="255" />
+    <Property Name="addressType" Type="int" />
+    <Property Name="state" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Administradores">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="username" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="password" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AgentClientRel">
+    <Key>
+      <PropertyRef Name="codeAgentClient" />
+    </Key>
+    <Property Name="codeAgentClient" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GUID" Type="varchar" MaxLength="255" />
+    <Property Name="Agent" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="ciudades">
+    <Key>
+      <PropertyRef Name="id_ciudad" />
+    </Key>
+    <Property Name="id_ciudad" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_estado" Type="int" Nullable="false" />
+    <Property Name="ciudad" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="capital" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="configuraciones">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="configuracion" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="valor" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="consignatario">
+    <Key>
+      <PropertyRef Name="idConsignatario" />
+    </Key>
+    <Property Name="idConsignatario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="255" />
+    <Property Name="Email" Type="varchar" MaxLength="255" />
+    <Property Name="AccessPassword" Type="varchar" MaxLength="255" />
+    <Property Name="apellido" Type="varchar" MaxLength="50" />
+    <Property Name="telefono" Type="varchar" MaxLength="50" />
+    <Property Name="sexo" Type="varchar" MaxLength="2" />
+    <Property Name="cedula" Type="varchar" MaxLength="50" />
+    <Property Name="sector" Type="varchar" MaxLength="50" />
+    <Property Name="isEmailVerified" Type="bit" />
+    <Property Name="ActivationCode" Type="uniqueidentifier" />
+    <Property Name="fecha_creacion" Type="date" Nullable="false" />
+    <Property Name="infoInMagaya" Type="bit" />
+  </EntityType>
+  <EntityType Name="CustomLog">
+    <Key>
+      <PropertyRef Name="LogId" />
+    </Key>
+    <Property Name="LogId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Message" Type="varchar(max)" Nullable="false" />
+    <Property Name="LogType" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="RequestUri" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="RequestedBy" Type="varchar(max)" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="direcciones">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Direccion" Type="text" Nullable="false" />
+    <Property Name="State" Type="int" Nullable="false" />
+    <Property Name="Sector" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="City" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Entities">
+    <Key>
+      <PropertyRef Name="entityCode" />
+    </Key>
+    <Property Name="entityCode" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GUID" Type="varchar(max)" Nullable="false" />
+    <Property Name="Type" Type="varchar" MaxLength="30" />
+    <Property Name="Name" Type="varchar" MaxLength="255" />
+    <Property Name="CreatedOn" Type="datetime" />
+    <Property Name="Email" Type="varchar" MaxLength="255" />
+    <Property Name="AccountNumber" Type="varchar(max)" />
+    <Property Name="ParentName" Type="varchar" MaxLength="255" />
+    <Property Name="IsPrepaid" Type="bit" />
+    <Property Name="MobilePhone" Type="varchar" MaxLength="255" />
+    <Property Name="EntityID" Type="varchar" MaxLength="50" />
+    <Property Name="Phone" Type="varchar" MaxLength="255" />
+    <Property Name="Password" Type="varchar" MaxLength="255" />
+    <Property Name="ExporterID" Type="varchar" MaxLength="50" />
+    <Property Name="ExporterIDType" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="estados">
+    <Key>
+      <PropertyRef Name="id_estado" />
+    </Key>
+    <Property Name="id_estado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="estado" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="iso_3166-2" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EventDefinition">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="IncludeInTracking" Type="bit" Nullable="false" />
+    <Property Name="OwnerNumber" Type="varchar" MaxLength="255" />
+    <Property Name="Date" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Events">
+    <Key>
+      <PropertyRef Name="EventCode" />
+    </Key>
+    <Property Name="Date" Type="datetime" />
+    <Property Name="WRCode" Type="varchar" MaxLength="255" />
+    <Property Name="EventCode" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EventDefinitionName" Type="varchar" MaxLength="255" />
+    <Property Name="IncludeInTracking" Type="bit" />
+    <Property Name="OwnerType" Type="varchar" MaxLength="255" />
+    <Property Name="OwnerNumber" Type="varchar" MaxLength="255" />
+    <Property Name="OwnerGUID" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="line">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="weight" Type="int" Nullable="false" />
+    <Property Name="turn" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="mensajes">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="titulo" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="mensaje" Type="varchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ModeOfTransportation">
+    <Key>
+      <PropertyRef Name="modeTransportationCode" />
+    </Key>
+    <Property Name="modeTransportationCode" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Code" Type="varchar" MaxLength="255" />
+    <Property Name="Description" Type="varchar" MaxLength="255" />
+    <Property Name="Method" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Notification">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Type" Type="int" />
+    <Property Name="Details" Type="nvarchar" MaxLength="500" />
+    <Property Name="Title" Type="nvarchar" MaxLength="50" />
+    <Property Name="DetailsURL" Type="nvarchar" MaxLength="500" />
+    <Property Name="SentTo" Type="nvarchar" MaxLength="50" />
+    <Property Name="Date" Type="date" />
+    <Property Name="IsRead" Type="bit" />
+    <Property Name="IsDeleted" Type="bit" />
+    <Property Name="IsReminder" Type="bit" />
+    <Property Name="Code" Type="nvarchar" MaxLength="100" />
+    <Property Name="NotificationType" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="PasswordRecovery">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="RecoveryKey" Type="uniqueidentifier" />
+    <Property Name="date_to" Type="date" />
+    <Property Name="IsRecovered" Type="bit" />
+  </EntityType>
+  <EntityType Name="PaymentTerms">
+    <Key>
+      <PropertyRef Name="codePaymentTerms" />
+    </Key>
+    <Property Name="codePaymentTerms" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="255" />
+    <Property Name="NetDueDays" Type="int" />
+    <Property Name="DiscountPercentage" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="DiscountPaidDays" Type="int" />
+    <Property Name="clientGUID" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="Roles">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Rol" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Sector">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="sector" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Sexo">
+    <Key>
+      <PropertyRef Name="idSexo" />
+    </Key>
+    <Property Name="idSexo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Sexo" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Tbl_ExceptionLoggingToDataBase">
+    <Key>
+      <PropertyRef Name="Logid" />
+    </Key>
+    <Property Name="Logid" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ExceptionMsg" Type="varchar" MaxLength="100" />
+    <Property Name="ExceptionType" Type="varchar" MaxLength="100" />
+    <Property Name="ExceptionSource" Type="nvarchar(max)" />
+    <Property Name="ExceptionURL" Type="varchar" MaxLength="100" />
+    <Property Name="Logdate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Username" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="PasswordHash" Type="binary" MaxLength="64" Nullable="false" />
+    <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="PasswordSalt" Type="binary" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="WareHouseAttach">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Identifier" Type="int" Nullable="false" />
+    <Property Name="OwnerGUID" Type="varchar" MaxLength="255" />
+    <Property Name="OwnerType" Type="varchar" MaxLength="255" />
+    <Property Name="Size" Type="int" />
+    <Property Name="IsInternal" Type="bit" />
+    <Property Name="IsImage" Type="bit" />
+    <Property Name="Extension" Type="varchar" MaxLength="255" />
+    <Property Name="Name" Type="varchar" MaxLength="255" />
+    <Property Name="Imagen" Type="varbinary(max)" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="WarehouseReceipts">
+    <Key>
+      <PropertyRef Name="codeWR" />
+    </Key>
+    <Property Name="codeWR" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GUID" Type="varchar" MaxLength="255" />
+    <Property Name="CreatedOn" Type="datetime" />
+    <Property Name="Number" Type="varchar" MaxLength="255" />
+    <Property Name="CreatedByName" Type="varchar" MaxLength="255" />
+    <Property Name="ModeOfTransportCode" Type="int" />
+    <Property Name="IssuedBy" Type="varchar" MaxLength="255" />
+    <Property Name="Shipper" Type="varchar" MaxLength="255" />
+    <Property Name="Consignee" Type="varchar" MaxLength="255" />
+    <Property Name="DestinationAgent" Type="varchar" MaxLength="255" />
+    <Property Name="CreatorNetworkID" Type="int" />
+    <Property Name="TotalPieces" Type="int" />
+    <Property Name="TotalWeight" Type="varchar" MaxLength="50" />
+    <Property Name="TotalVolume" Type="varchar" MaxLength="50" />
+    <Property Name="TotalVolumeWeight" Type="varchar" MaxLength="50" />
+    <Property Name="ChargeableWeight" Type="varchar" MaxLength="50" />
+    <Property Name="TotalValue" Type="float" />
+    <Property Name="Status" Type="varchar" MaxLength="255" />
+    <Property Name="HasAttachments" Type="bit" />
+    <Property Name="BillingClient" Type="varchar" MaxLength="255" />
+    <Property Name="IsOnline" Type="bit" />
+    <Property Name="IsLiquidated" Type="bit" />
+    <Property Name="TrackingNumber" Type="varchar" MaxLength="255" />
+    <Property Name="PackageName" Type="varchar" MaxLength="255" />
+    <Property Name="WHRItemID" Type="int" />
+    <Property Name="Length" Type="varchar" MaxLength="50" />
+    <Property Name="Height" Type="varchar" MaxLength="50" />
+    <Property Name="Width" Type="varchar" MaxLength="50" />
+    <Property Name="Weight" Type="varchar" MaxLength="50" />
+    <Property Name="ContainedPiecesWeightIncluded" Type="bit" />
+    <Property Name="Volume" Type="varchar" MaxLength="50" />
+    <Property Name="VolumeWeight" Type="varchar" MaxLength="50" />
+    <Property Name="PieceWeight" Type="varchar" MaxLength="50" />
+    <Property Name="PieceVolume" Type="varchar" MaxLength="50" />
+    <Property Name="Version" Type="int" Nullable="false" />
+    <Property Name="LastItemID" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="WareHouseReceiptsItems">
+    <Key>
+      <PropertyRef Name="codeWHItem" />
+    </Key>
+    <Property Name="codeWHItem" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="WarehouseReceiptGUID" Type="varchar" MaxLength="255" />
+    <Property Name="GUID" Type="varchar(max)" />
+    <Property Name="Type" Type="varchar" MaxLength="255" />
+    <Property Name="Version" Type="int" />
+    <Property Name="Status" Type="varchar" MaxLength="255" />
+    <Property Name="Pieces" Type="int" />
+    <Property Name="Description" Type="varchar(max)" />
+    <Property Name="PieceQuantity" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="IsSummarized" Type="bit" />
+    <Property Name="TrackingNumber" Type="varchar(max)" />
+    <Property Name="PackageName" Type="varchar" MaxLength="255" />
+    <Property Name="WHRItemID" Type="int" />
+    <Property Name="Length" Type="float" />
+    <Property Name="Height" Type="float" />
+    <Property Name="Width" Type="float" />
+    <Property Name="Weight" Type="float" />
+    <Property Name="ContainedPiecesWeightIncluded" Type="bit" />
+    <Property Name="Volume" Type="float" />
+    <Property Name="VolumeWeight" Type="float" />
+    <Property Name="PieceWeight" Type="float" />
+    <Property Name="PieceVolume" Type="float" />
+    <Property Name="PackageType" Type="varchar" MaxLength="255" />
+    <Property Name="InShipmentGUID" Type="varchar(max)" />
+    <Property Name="IncludeInSED" Type="bit" />
+    <Property Name="IsContainer" Type="bit" />
+    <Property Name="OutMasterWayBillNumber" Type="varchar(max)" />
+    <Property Name="OutHouseWayBillNumber" Type="varchar(max)" />
+    <Property Name="InMasterWayBillNumber" Type="varchar(max)" />
+    <Property Name="InHouseWayBillNumber" Type="varchar(max)" />
+    <Property Name="ArrivalDate" Type="datetime" />
+    <Property Name="WarehouseReceiptNumber" Type="varchar" MaxLength="255" />
+    <Property Name="OrderIndex" Type="int" />
+    <Property Name="IsPallet" Type="bit" />
+    <Property Name="IsOverstock" Type="bit" />
+    <Property Name="NotLoaded" Type="bit" />
+    <Property Name="InTask" Type="bit" />
+    <Property Name="EntryDate" Type="datetime" />
+    <Property Name="OutShipmentGUID" Type="varchar" MaxLength="50" />
+    <Property Name="Notes" Type="varchar(max)" />
+    <Property Name="LastReceptionNetworkID" Type="varchar" MaxLength="50" />
+    <Property Name="ShipmentType" Type="varchar" MaxLength="50" />
+    <Property Name="OutDate" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_consignatario_consignatario">
+    <End Role="consignatario" Type="Self.consignatario" Multiplicity="1" />
+    <End Role="consignatario1" Type="Self.consignatario" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="consignatario">
+        <PropertyRef Name="idConsignatario" />
+      </Principal>
+      <Dependent Role="consignatario1">
+        <PropertyRef Name="idConsignatario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="buscaReceiptUsuario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="consignee" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="ExceptionLoggingToDataBase" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ExceptionMsg" Type="varchar" Mode="In" />
+    <Parameter Name="ExceptionType" Type="varchar" Mode="In" />
+    <Parameter Name="ExceptionSource" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="ExceptionURL" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="pa_ususarioxemail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="email" Type="varchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="latamModelStoreContainer">
+    <EntitySet Name="Address" EntityType="Self.Address" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Administradores" EntityType="Self.Administradores" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AgentClientRel" EntityType="Self.AgentClientRel" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ciudades" EntityType="Self.ciudades" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="configuraciones" EntityType="Self.configuraciones" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="consignatario" EntityType="Self.consignatario" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CustomLog" EntityType="Self.CustomLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="direcciones" EntityType="Self.direcciones" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Entities" EntityType="Self.Entities" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="estados" EntityType="Self.estados" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EventDefinition" EntityType="Self.EventDefinition" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Events" EntityType="Self.Events" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="line" EntityType="Self.line" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="mensajes" EntityType="Self.mensajes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ModeOfTransportation" EntityType="Self.ModeOfTransportation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Notification" EntityType="Self.Notification" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PasswordRecovery" EntityType="Self.PasswordRecovery" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PaymentTerms" EntityType="Self.PaymentTerms" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sector" EntityType="Self.Sector" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sexo" EntityType="Self.Sexo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_ExceptionLoggingToDataBase" EntityType="Self.Tbl_ExceptionLoggingToDataBase" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WareHouseAttach" EntityType="Self.WareHouseAttach" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WarehouseReceipts" EntityType="Self.WarehouseReceipts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WareHouseReceiptsItems" EntityType="Self.WareHouseReceiptsItems" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_consignatario_consignatario" Association="Self.FK_consignatario_consignatario">
+      <End Role="consignatario" EntitySet="consignatario" />
+      <End Role="consignatario1" EntitySet="consignatario" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

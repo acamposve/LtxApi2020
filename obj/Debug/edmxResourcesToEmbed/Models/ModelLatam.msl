@@ -1,0 +1,416 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="latamModelStoreContainer" CdmEntityContainer="latamEntities">
+    <FunctionImportMapping FunctionImportName="buscaReceiptUsuario" FunctionName="latamModel.Store.buscaReceiptUsuario">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="latamModel.buscaReceiptUsuario_Result">
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="GUID" ColumnName="GUID" />
+          <ScalarProperty Name="TotalPieces" ColumnName="TotalPieces" />
+          <ScalarProperty Name="TotalVolumeWeight" ColumnName="TotalVolumeWeight" />
+          <ScalarProperty Name="TotalVolume" ColumnName="TotalVolume" />
+          <ScalarProperty Name="TotalWeight" ColumnName="TotalWeight" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="codeWR" ColumnName="codeWR" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="ExceptionLoggingToDataBase" FunctionName="latamModel.Store.ExceptionLoggingToDataBase" />
+    <FunctionImportMapping FunctionImportName="pa_ususarioxemail" FunctionName="latamModel.Store.pa_ususarioxemail">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="latamModel.pa_ususarioxemail_Result">
+          <ScalarProperty Name="idConsignatario" ColumnName="idConsignatario" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Add1" ColumnName="Add1" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="apellido" ColumnName="apellido" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="cedula" ColumnName="cedula" />
+          <ScalarProperty Name="sector" ColumnName="sector" />
+          <ScalarProperty Name="direccionUsuario" ColumnName="direccionUsuario" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="ciudad" ColumnName="ciudad" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="sexoUsuario" ColumnName="sexoUsuario" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="Address">
+      <EntityTypeMapping TypeName="latamModel.Address">
+        <MappingFragment StoreEntitySet="Address">
+          <ScalarProperty Name="state" ColumnName="state" />
+          <ScalarProperty Name="addressType" ColumnName="addressType" />
+          <ScalarProperty Name="contactemail2" ColumnName="contactemail2" />
+          <ScalarProperty Name="contactemail1" ColumnName="contactemail1" />
+          <ScalarProperty Name="country" ColumnName="country" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="street" ColumnName="street" />
+          <ScalarProperty Name="entityGUID" ColumnName="entityGUID" />
+          <ScalarProperty Name="codeAddress" ColumnName="codeAddress" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Administradores">
+      <EntityTypeMapping TypeName="latamModel.Administradores">
+        <MappingFragment StoreEntitySet="Administradores">
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AgentClientRel">
+      <EntityTypeMapping TypeName="latamModel.AgentClientRel">
+        <MappingFragment StoreEntitySet="AgentClientRel">
+          <ScalarProperty Name="Agent" ColumnName="Agent" />
+          <ScalarProperty Name="GUID" ColumnName="GUID" />
+          <ScalarProperty Name="codeAgentClient" ColumnName="codeAgentClient" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ciudades">
+      <EntityTypeMapping TypeName="latamModel.ciudades">
+        <MappingFragment StoreEntitySet="ciudades">
+          <ScalarProperty Name="capital" ColumnName="capital" />
+          <ScalarProperty Name="ciudad" ColumnName="ciudad" />
+          <ScalarProperty Name="id_estado" ColumnName="id_estado" />
+          <ScalarProperty Name="id_ciudad" ColumnName="id_ciudad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="configuraciones">
+      <EntityTypeMapping TypeName="latamModel.configuraciones">
+        <MappingFragment StoreEntitySet="configuraciones">
+          <ScalarProperty Name="valor" ColumnName="valor" />
+          <ScalarProperty Name="configuracion" ColumnName="configuracion" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="consignatario">
+      <EntityTypeMapping TypeName="latamModel.consignatario">
+        <MappingFragment StoreEntitySet="consignatario">
+          <ScalarProperty Name="infoInMagaya" ColumnName="infoInMagaya" />
+          <ScalarProperty Name="fecha_creacion" ColumnName="fecha_creacion" />
+          <ScalarProperty Name="ActivationCode" ColumnName="ActivationCode" />
+          <ScalarProperty Name="isEmailVerified" ColumnName="isEmailVerified" />
+          <ScalarProperty Name="sector" ColumnName="sector" />
+          <ScalarProperty Name="cedula" ColumnName="cedula" />
+          <ScalarProperty Name="sexo" ColumnName="sexo" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="apellido" ColumnName="apellido" />
+          <ScalarProperty Name="AccessPassword" ColumnName="AccessPassword" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="idConsignatario" ColumnName="idConsignatario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CustomLog">
+      <EntityTypeMapping TypeName="latamModel.CustomLog">
+        <MappingFragment StoreEntitySet="CustomLog">
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="RequestedBy" ColumnName="RequestedBy" />
+          <ScalarProperty Name="RequestUri" ColumnName="RequestUri" />
+          <ScalarProperty Name="LogType" ColumnName="LogType" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="LogId" ColumnName="LogId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="direcciones">
+      <EntityTypeMapping TypeName="latamModel.direcciones">
+        <MappingFragment StoreEntitySet="direcciones">
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Sector" ColumnName="Sector" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Entities">
+      <EntityTypeMapping TypeName="latamModel.Entities">
+        <MappingFragment StoreEntitySet="Entities">
+          <ScalarProperty Name="ExporterIDType" ColumnName="ExporterIDType" />
+          <ScalarProperty Name="ExporterID" ColumnName="ExporterID" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="EntityID" ColumnName="EntityID" />
+          <ScalarProperty Name="MobilePhone" ColumnName="MobilePhone" />
+          <ScalarProperty Name="IsPrepaid" ColumnName="IsPrepaid" />
+          <ScalarProperty Name="ParentName" ColumnName="ParentName" />
+          <ScalarProperty Name="AccountNumber" ColumnName="AccountNumber" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="GUID" ColumnName="GUID" />
+          <ScalarProperty Name="entityCode" ColumnName="entityCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="estados">
+      <EntityTypeMapping TypeName="latamModel.estados">
+        <MappingFragment StoreEntitySet="estados">
+          <ScalarProperty Name="iso_3166_2" ColumnName="iso_3166-2" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="id_estado" ColumnName="id_estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EventDefinition">
+      <EntityTypeMapping TypeName="latamModel.EventDefinition">
+        <MappingFragment StoreEntitySet="EventDefinition">
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="OwnerNumber" ColumnName="OwnerNumber" />
+          <ScalarProperty Name="IncludeInTracking" ColumnName="IncludeInTracking" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Events">
+      <EntityTypeMapping TypeName="latamModel.Events">
+        <MappingFragment StoreEntitySet="Events">
+          <ScalarProperty Name="OwnerGUID" ColumnName="OwnerGUID" />
+          <ScalarProperty Name="OwnerNumber" ColumnName="OwnerNumber" />
+          <ScalarProperty Name="OwnerType" ColumnName="OwnerType" />
+          <ScalarProperty Name="IncludeInTracking" ColumnName="IncludeInTracking" />
+          <ScalarProperty Name="EventDefinitionName" ColumnName="EventDefinitionName" />
+          <ScalarProperty Name="EventCode" ColumnName="EventCode" />
+          <ScalarProperty Name="WRCode" ColumnName="WRCode" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="line">
+      <EntityTypeMapping TypeName="latamModel.line">
+        <MappingFragment StoreEntitySet="line">
+          <ScalarProperty Name="turn" ColumnName="turn" />
+          <ScalarProperty Name="weight" ColumnName="weight" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mensajes">
+      <EntityTypeMapping TypeName="latamModel.mensajes">
+        <MappingFragment StoreEntitySet="mensajes">
+          <ScalarProperty Name="mensaje" ColumnName="mensaje" />
+          <ScalarProperty Name="titulo" ColumnName="titulo" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ModeOfTransportation">
+      <EntityTypeMapping TypeName="latamModel.ModeOfTransportation">
+        <MappingFragment StoreEntitySet="ModeOfTransportation">
+          <ScalarProperty Name="Method" ColumnName="Method" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="modeTransportationCode" ColumnName="modeTransportationCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Notification">
+      <EntityTypeMapping TypeName="latamModel.Notification">
+        <MappingFragment StoreEntitySet="Notification">
+          <ScalarProperty Name="NotificationType" ColumnName="NotificationType" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="IsReminder" ColumnName="IsReminder" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="IsRead" ColumnName="IsRead" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="SentTo" ColumnName="SentTo" />
+          <ScalarProperty Name="DetailsURL" ColumnName="DetailsURL" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Details" ColumnName="Details" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PasswordRecovery">
+      <EntityTypeMapping TypeName="latamModel.PasswordRecovery">
+        <MappingFragment StoreEntitySet="PasswordRecovery">
+          <ScalarProperty Name="IsRecovered" ColumnName="IsRecovered" />
+          <ScalarProperty Name="date_to" ColumnName="date_to" />
+          <ScalarProperty Name="RecoveryKey" ColumnName="RecoveryKey" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PaymentTerms">
+      <EntityTypeMapping TypeName="latamModel.PaymentTerms">
+        <MappingFragment StoreEntitySet="PaymentTerms">
+          <ScalarProperty Name="clientGUID" ColumnName="clientGUID" />
+          <ScalarProperty Name="DiscountPaidDays" ColumnName="DiscountPaidDays" />
+          <ScalarProperty Name="DiscountPercentage" ColumnName="DiscountPercentage" />
+          <ScalarProperty Name="NetDueDays" ColumnName="NetDueDays" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="codePaymentTerms" ColumnName="codePaymentTerms" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="latamModel.Roles">
+        <MappingFragment StoreEntitySet="Roles">
+          <ScalarProperty Name="Rol" ColumnName="Rol" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sector">
+      <EntityTypeMapping TypeName="latamModel.Sector">
+        <MappingFragment StoreEntitySet="Sector">
+          <ScalarProperty Name="sector1" ColumnName="sector" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sexo">
+      <EntityTypeMapping TypeName="latamModel.Sexo">
+        <MappingFragment StoreEntitySet="Sexo">
+          <ScalarProperty Name="Sexo1" ColumnName="Sexo" />
+          <ScalarProperty Name="idSexo" ColumnName="idSexo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_ExceptionLoggingToDataBase">
+      <EntityTypeMapping TypeName="latamModel.Tbl_ExceptionLoggingToDataBase">
+        <MappingFragment StoreEntitySet="Tbl_ExceptionLoggingToDataBase">
+          <ScalarProperty Name="Logdate" ColumnName="Logdate" />
+          <ScalarProperty Name="ExceptionURL" ColumnName="ExceptionURL" />
+          <ScalarProperty Name="ExceptionSource" ColumnName="ExceptionSource" />
+          <ScalarProperty Name="ExceptionType" ColumnName="ExceptionType" />
+          <ScalarProperty Name="ExceptionMsg" ColumnName="ExceptionMsg" />
+          <ScalarProperty Name="Logid" ColumnName="Logid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="latamModel.Users">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="PasswordSalt" ColumnName="PasswordSalt" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WareHouseAttach">
+      <EntityTypeMapping TypeName="latamModel.WareHouseAttach">
+        <MappingFragment StoreEntitySet="WareHouseAttach">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Imagen" ColumnName="Imagen" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Extension" ColumnName="Extension" />
+          <ScalarProperty Name="IsImage" ColumnName="IsImage" />
+          <ScalarProperty Name="IsInternal" ColumnName="IsInternal" />
+          <ScalarProperty Name="Size" ColumnName="Size" />
+          <ScalarProperty Name="OwnerType" ColumnName="OwnerType" />
+          <ScalarProperty Name="OwnerGUID" ColumnName="OwnerGUID" />
+          <ScalarProperty Name="Identifier" ColumnName="Identifier" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WarehouseReceipts">
+      <EntityTypeMapping TypeName="latamModel.WarehouseReceipts">
+        <MappingFragment StoreEntitySet="WarehouseReceipts">
+          <ScalarProperty Name="LastItemID" ColumnName="LastItemID" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+          <ScalarProperty Name="PieceVolume" ColumnName="PieceVolume" />
+          <ScalarProperty Name="PieceWeight" ColumnName="PieceWeight" />
+          <ScalarProperty Name="VolumeWeight" ColumnName="VolumeWeight" />
+          <ScalarProperty Name="Volume" ColumnName="Volume" />
+          <ScalarProperty Name="ContainedPiecesWeightIncluded" ColumnName="ContainedPiecesWeightIncluded" />
+          <ScalarProperty Name="Weight" ColumnName="Weight" />
+          <ScalarProperty Name="Width" ColumnName="Width" />
+          <ScalarProperty Name="Height" ColumnName="Height" />
+          <ScalarProperty Name="Length" ColumnName="Length" />
+          <ScalarProperty Name="WHRItemID" ColumnName="WHRItemID" />
+          <ScalarProperty Name="PackageName" ColumnName="PackageName" />
+          <ScalarProperty Name="TrackingNumber" ColumnName="TrackingNumber" />
+          <ScalarProperty Name="IsLiquidated" ColumnName="IsLiquidated" />
+          <ScalarProperty Name="IsOnline" ColumnName="IsOnline" />
+          <ScalarProperty Name="BillingClient" ColumnName="BillingClient" />
+          <ScalarProperty Name="HasAttachments" ColumnName="HasAttachments" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="TotalValue" ColumnName="TotalValue" />
+          <ScalarProperty Name="ChargeableWeight" ColumnName="ChargeableWeight" />
+          <ScalarProperty Name="TotalVolumeWeight" ColumnName="TotalVolumeWeight" />
+          <ScalarProperty Name="TotalVolume" ColumnName="TotalVolume" />
+          <ScalarProperty Name="TotalWeight" ColumnName="TotalWeight" />
+          <ScalarProperty Name="TotalPieces" ColumnName="TotalPieces" />
+          <ScalarProperty Name="CreatorNetworkID" ColumnName="CreatorNetworkID" />
+          <ScalarProperty Name="DestinationAgent" ColumnName="DestinationAgent" />
+          <ScalarProperty Name="Consignee" ColumnName="Consignee" />
+          <ScalarProperty Name="Shipper" ColumnName="Shipper" />
+          <ScalarProperty Name="IssuedBy" ColumnName="IssuedBy" />
+          <ScalarProperty Name="ModeOfTransportCode" ColumnName="ModeOfTransportCode" />
+          <ScalarProperty Name="CreatedByName" ColumnName="CreatedByName" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="GUID" ColumnName="GUID" />
+          <ScalarProperty Name="codeWR" ColumnName="codeWR" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WareHouseReceiptsItems">
+      <EntityTypeMapping TypeName="latamModel.WareHouseReceiptsItems">
+        <MappingFragment StoreEntitySet="WareHouseReceiptsItems">
+          <ScalarProperty Name="OutDate" ColumnName="OutDate" />
+          <ScalarProperty Name="ShipmentType" ColumnName="ShipmentType" />
+          <ScalarProperty Name="LastReceptionNetworkID" ColumnName="LastReceptionNetworkID" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="OutShipmentGUID" ColumnName="OutShipmentGUID" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="InTask" ColumnName="InTask" />
+          <ScalarProperty Name="NotLoaded" ColumnName="NotLoaded" />
+          <ScalarProperty Name="IsOverstock" ColumnName="IsOverstock" />
+          <ScalarProperty Name="IsPallet" ColumnName="IsPallet" />
+          <ScalarProperty Name="OrderIndex" ColumnName="OrderIndex" />
+          <ScalarProperty Name="WarehouseReceiptNumber" ColumnName="WarehouseReceiptNumber" />
+          <ScalarProperty Name="ArrivalDate" ColumnName="ArrivalDate" />
+          <ScalarProperty Name="InHouseWayBillNumber" ColumnName="InHouseWayBillNumber" />
+          <ScalarProperty Name="InMasterWayBillNumber" ColumnName="InMasterWayBillNumber" />
+          <ScalarProperty Name="OutHouseWayBillNumber" ColumnName="OutHouseWayBillNumber" />
+          <ScalarProperty Name="OutMasterWayBillNumber" ColumnName="OutMasterWayBillNumber" />
+          <ScalarProperty Name="IsContainer" ColumnName="IsContainer" />
+          <ScalarProperty Name="IncludeInSED" ColumnName="IncludeInSED" />
+          <ScalarProperty Name="InShipmentGUID" ColumnName="InShipmentGUID" />
+          <ScalarProperty Name="PackageType" ColumnName="PackageType" />
+          <ScalarProperty Name="PieceVolume" ColumnName="PieceVolume" />
+          <ScalarProperty Name="PieceWeight" ColumnName="PieceWeight" />
+          <ScalarProperty Name="VolumeWeight" ColumnName="VolumeWeight" />
+          <ScalarProperty Name="Volume" ColumnName="Volume" />
+          <ScalarProperty Name="ContainedPiecesWeightIncluded" ColumnName="ContainedPiecesWeightIncluded" />
+          <ScalarProperty Name="Weight" ColumnName="Weight" />
+          <ScalarProperty Name="Width" ColumnName="Width" />
+          <ScalarProperty Name="Height" ColumnName="Height" />
+          <ScalarProperty Name="Length" ColumnName="Length" />
+          <ScalarProperty Name="WHRItemID" ColumnName="WHRItemID" />
+          <ScalarProperty Name="PackageName" ColumnName="PackageName" />
+          <ScalarProperty Name="TrackingNumber" ColumnName="TrackingNumber" />
+          <ScalarProperty Name="IsSummarized" ColumnName="IsSummarized" />
+          <ScalarProperty Name="PieceQuantity" ColumnName="PieceQuantity" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Pieces" ColumnName="Pieces" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="GUID" ColumnName="GUID" />
+          <ScalarProperty Name="WarehouseReceiptGUID" ColumnName="WarehouseReceiptGUID" />
+          <ScalarProperty Name="codeWHItem" ColumnName="codeWHItem" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

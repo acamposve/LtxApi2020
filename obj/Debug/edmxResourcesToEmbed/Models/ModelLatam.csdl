@@ -1,0 +1,437 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="latamModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="latamEntities" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="buscaReceiptUsuario" ReturnType="Collection(latamModel.buscaReceiptUsuario_Result)">
+      <Parameter Name="consignee" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ExceptionLoggingToDataBase">
+      <Parameter Name="ExceptionMsg" Mode="In" Type="String" />
+      <Parameter Name="ExceptionType" Mode="In" Type="String" />
+      <Parameter Name="ExceptionSource" Mode="In" Type="String" />
+      <Parameter Name="ExceptionURL" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="pa_ususarioxemail" ReturnType="Collection(latamModel.pa_ususarioxemail_Result)">
+      <Parameter Name="email" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="Address" EntityType="latamModel.Address" />
+    <EntitySet Name="Administradores" EntityType="latamModel.Administradores" />
+    <EntitySet Name="AgentClientRel" EntityType="latamModel.AgentClientRel" />
+    <EntitySet Name="ciudades" EntityType="latamModel.ciudades" />
+    <EntitySet Name="configuraciones" EntityType="latamModel.configuraciones" />
+    <EntitySet Name="consignatario" EntityType="latamModel.consignatario" />
+    <EntitySet Name="CustomLog" EntityType="latamModel.CustomLog" />
+    <EntitySet Name="direcciones" EntityType="latamModel.direcciones" />
+    <EntitySet Name="Entities" EntityType="latamModel.Entities" />
+    <EntitySet Name="estados" EntityType="latamModel.estados" />
+    <EntitySet Name="EventDefinition" EntityType="latamModel.EventDefinition" />
+    <EntitySet Name="Events" EntityType="latamModel.Events" />
+    <EntitySet Name="line" EntityType="latamModel.line" />
+    <EntitySet Name="mensajes" EntityType="latamModel.mensajes" />
+    <EntitySet Name="ModeOfTransportation" EntityType="latamModel.ModeOfTransportation" />
+    <EntitySet Name="Notification" EntityType="latamModel.Notification" />
+    <EntitySet Name="PasswordRecovery" EntityType="latamModel.PasswordRecovery" />
+    <EntitySet Name="PaymentTerms" EntityType="latamModel.PaymentTerms" />
+    <EntitySet Name="Roles" EntityType="latamModel.Roles" />
+    <EntitySet Name="Sector" EntityType="latamModel.Sector" />
+    <EntitySet Name="Sexo" EntityType="latamModel.Sexo" />
+    <EntitySet Name="Tbl_ExceptionLoggingToDataBase" EntityType="latamModel.Tbl_ExceptionLoggingToDataBase" />
+    <EntitySet Name="Users" EntityType="latamModel.Users" />
+    <EntitySet Name="WareHouseAttach" EntityType="latamModel.WareHouseAttach" />
+    <EntitySet Name="WarehouseReceipts" EntityType="latamModel.WarehouseReceipts" />
+    <EntitySet Name="WareHouseReceiptsItems" EntityType="latamModel.WareHouseReceiptsItems" />
+    <AssociationSet Name="FK_consignatario_consignatario" Association="latamModel.FK_consignatario_consignatario">
+      <End Role="consignatario" EntitySet="consignatario" />
+      <End Role="consignatario1" EntitySet="consignatario" />
+    </AssociationSet>
+  </EntityContainer>
+  <ComplexType Name="buscaReceiptUsuario_Result">
+    <Property Type="String" Name="Number" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="GUID" Nullable="true" MaxLength="255" />
+    <Property Type="Int32" Name="TotalPieces" Nullable="true" />
+    <Property Type="String" Name="TotalVolumeWeight" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="TotalVolume" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="TotalWeight" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="CreatedOn" Nullable="true" />
+    <Property Type="String" Name="Status" Nullable="true" MaxLength="255" />
+    <Property Type="Int32" Name="codeWR" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="pa_ususarioxemail_Result">
+    <Property Type="Int32" Name="idConsignatario" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Add1" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="apellido" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="telefono" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="cedula" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="sector" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="direccionUsuario" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Direccion" Nullable="false" MaxLength="Max" />
+    <Property Type="String" Name="ciudad" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="estado" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="sexoUsuario" Nullable="false" MaxLength="50" />
+  </ComplexType>
+  <EntityType Name="Address">
+    <Key>
+      <PropertyRef Name="codeAddress" />
+    </Key>
+    <Property Name="codeAddress" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="entityGUID" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="street" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="city" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="country" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="contactemail1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="contactemail2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="addressType" Type="Int32" />
+    <Property Name="state" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Administradores">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="username" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="AgentClientRel">
+    <Key>
+      <PropertyRef Name="codeAgentClient" />
+    </Key>
+    <Property Name="codeAgentClient" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GUID" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Agent" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="ciudades">
+    <Key>
+      <PropertyRef Name="id_ciudad" />
+    </Key>
+    <Property Name="id_ciudad" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_estado" Type="Int32" Nullable="false" />
+    <Property Name="ciudad" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="capital" Type="Byte" Nullable="false" />
+  </EntityType>
+  <EntityType Name="configuraciones">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="configuracion" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="valor" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="consignatario">
+    <Key>
+      <PropertyRef Name="idConsignatario" />
+    </Key>
+    <Property Name="idConsignatario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="AccessPassword" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="telefono" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="sexo" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="cedula" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="sector" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="isEmailVerified" Type="Boolean" />
+    <Property Name="ActivationCode" Type="Guid" />
+    <Property Name="fecha_creacion" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="infoInMagaya" Type="Boolean" />
+    <NavigationProperty Name="consignatario1" Relationship="latamModel.FK_consignatario_consignatario" FromRole="consignatario" ToRole="consignatario1" />
+    <NavigationProperty Name="consignatario2" Relationship="latamModel.FK_consignatario_consignatario" FromRole="consignatario1" ToRole="consignatario" />
+  </EntityType>
+  <EntityType Name="CustomLog">
+    <Key>
+      <PropertyRef Name="LogId" />
+    </Key>
+    <Property Name="LogId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Message" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="LogType" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="RequestUri" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="RequestedBy" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="direcciones">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Direccion" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="State" Type="Int32" Nullable="false" />
+    <Property Name="Sector" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="City" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Entities">
+    <Key>
+      <PropertyRef Name="entityCode" />
+    </Key>
+    <Property Name="entityCode" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GUID" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Type" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="AccountNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ParentName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="IsPrepaid" Type="Boolean" />
+    <Property Name="MobilePhone" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="EntityID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Phone" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ExporterID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ExporterIDType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="estados">
+    <Key>
+      <PropertyRef Name="id_estado" />
+    </Key>
+    <Property Name="id_estado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="estado" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="iso_3166_2" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="EventDefinition">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IncludeInTracking" Type="Boolean" Nullable="false" />
+    <Property Name="OwnerNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Date" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Events">
+    <Key>
+      <PropertyRef Name="EventCode" />
+    </Key>
+    <Property Name="Date" Type="DateTime" Precision="3" />
+    <Property Name="WRCode" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="EventCode" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EventDefinitionName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="IncludeInTracking" Type="Boolean" />
+    <Property Name="OwnerType" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="OwnerNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="OwnerGUID" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="line">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="weight" Type="Int32" Nullable="false" />
+    <Property Name="turn" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="mensajes">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="titulo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="mensaje" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="ModeOfTransportation">
+    <Key>
+      <PropertyRef Name="modeTransportationCode" />
+    </Key>
+    <Property Name="modeTransportationCode" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Code" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Method" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Notification">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Type" Type="Int32" />
+    <Property Name="Details" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DetailsURL" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="SentTo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Date" Type="DateTime" Precision="0" />
+    <Property Name="IsRead" Type="Boolean" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="IsReminder" Type="Boolean" />
+    <Property Name="Code" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="NotificationType" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="PasswordRecovery">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="RecoveryKey" Type="Guid" />
+    <Property Name="date_to" Type="DateTime" Precision="0" />
+    <Property Name="IsRecovered" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="PaymentTerms">
+    <Key>
+      <PropertyRef Name="codePaymentTerms" />
+    </Key>
+    <Property Name="codePaymentTerms" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="NetDueDays" Type="Int32" />
+    <Property Name="DiscountPercentage" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="DiscountPaidDays" Type="Int32" />
+    <Property Name="clientGUID" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Roles">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Rol" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Sector">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="sector1" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Sexo">
+    <Key>
+      <PropertyRef Name="idSexo" />
+    </Key>
+    <Property Name="idSexo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Sexo1" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Tbl_ExceptionLoggingToDataBase">
+    <Key>
+      <PropertyRef Name="Logid" />
+    </Key>
+    <Property Name="Logid" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ExceptionMsg" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ExceptionType" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ExceptionSource" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ExceptionURL" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Logdate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Username" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PasswordHash" Type="Binary" Nullable="false" MaxLength="64" FixedLength="true" />
+    <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PasswordSalt" Type="Binary" Nullable="false" MaxLength="128" FixedLength="true" />
+  </EntityType>
+  <EntityType Name="WareHouseAttach">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Identifier" Type="Int32" Nullable="false" />
+    <Property Name="OwnerGUID" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="OwnerType" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Size" Type="Int32" />
+    <Property Name="IsInternal" Type="Boolean" />
+    <Property Name="IsImage" Type="Boolean" />
+    <Property Name="Extension" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Imagen" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="WarehouseReceipts">
+    <Key>
+      <PropertyRef Name="codeWR" />
+    </Key>
+    <Property Name="codeWR" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GUID" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="Number" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedByName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ModeOfTransportCode" Type="Int32" />
+    <Property Name="IssuedBy" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Shipper" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Consignee" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="DestinationAgent" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="CreatorNetworkID" Type="Int32" />
+    <Property Name="TotalPieces" Type="Int32" />
+    <Property Name="TotalWeight" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TotalVolume" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TotalVolumeWeight" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ChargeableWeight" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TotalValue" Type="Double" />
+    <Property Name="Status" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="HasAttachments" Type="Boolean" />
+    <Property Name="BillingClient" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="IsOnline" Type="Boolean" />
+    <Property Name="IsLiquidated" Type="Boolean" />
+    <Property Name="TrackingNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="PackageName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="WHRItemID" Type="Int32" />
+    <Property Name="Length" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Height" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Width" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Weight" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ContainedPiecesWeightIncluded" Type="Boolean" />
+    <Property Name="Volume" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="VolumeWeight" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PieceWeight" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PieceVolume" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Version" Type="Int32" Nullable="false" />
+    <Property Name="LastItemID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="WareHouseReceiptsItems">
+    <Key>
+      <PropertyRef Name="codeWHItem" />
+    </Key>
+    <Property Name="codeWHItem" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="WarehouseReceiptGUID" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="GUID" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Type" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Version" Type="Int32" />
+    <Property Name="Status" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Pieces" Type="Int32" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="PieceQuantity" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="IsSummarized" Type="Boolean" />
+    <Property Name="TrackingNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="PackageName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="WHRItemID" Type="Int32" />
+    <Property Name="Length" Type="Double" />
+    <Property Name="Height" Type="Double" />
+    <Property Name="Width" Type="Double" />
+    <Property Name="Weight" Type="Double" />
+    <Property Name="ContainedPiecesWeightIncluded" Type="Boolean" />
+    <Property Name="Volume" Type="Double" />
+    <Property Name="VolumeWeight" Type="Double" />
+    <Property Name="PieceWeight" Type="Double" />
+    <Property Name="PieceVolume" Type="Double" />
+    <Property Name="PackageType" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="InShipmentGUID" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="IncludeInSED" Type="Boolean" />
+    <Property Name="IsContainer" Type="Boolean" />
+    <Property Name="OutMasterWayBillNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="OutHouseWayBillNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="InMasterWayBillNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="InHouseWayBillNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ArrivalDate" Type="DateTime" Precision="3" />
+    <Property Name="WarehouseReceiptNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="OrderIndex" Type="Int32" />
+    <Property Name="IsPallet" Type="Boolean" />
+    <Property Name="IsOverstock" Type="Boolean" />
+    <Property Name="NotLoaded" Type="Boolean" />
+    <Property Name="InTask" Type="Boolean" />
+    <Property Name="EntryDate" Type="DateTime" Precision="3" />
+    <Property Name="OutShipmentGUID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="LastReceptionNetworkID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ShipmentType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="OutDate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="FK_consignatario_consignatario">
+    <End Type="latamModel.consignatario" Role="consignatario" Multiplicity="1" />
+    <End Type="latamModel.consignatario" Role="consignatario1" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="consignatario">
+        <PropertyRef Name="idConsignatario" />
+      </Principal>
+      <Dependent Role="consignatario1">
+        <PropertyRef Name="idConsignatario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
