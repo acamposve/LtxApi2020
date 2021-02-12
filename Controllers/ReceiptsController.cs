@@ -60,5 +60,26 @@ namespace LtxApi2020.Controllers
 
             return Ok(embarques);
         }
+
+
+
+
+        [Route("embarques/ReceiptDetail")]
+        [HttpGet]
+        // GET: Users
+        public IHttpActionResult GetReceiptDetail(string codigo)
+        {
+            return Ok(_embarques.ReceiptDetail(codigo));
+        }
+
+
+        [Route("embarques/GiveReceiptInstructions")]
+        [HttpGet]
+        // GET: Users
+        public IHttpActionResult GiveReceiptInstructios(int codigo)
+        {
+            _embarques.ReceiptInstructions(codigo);
+            return Ok(true);
+        }
     }
 }
